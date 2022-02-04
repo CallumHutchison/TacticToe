@@ -13,7 +13,9 @@ defmodule TicTacToe.MegaGame do
               {2, 1} => TicTacToe.Game.new(),
               {2, 2} => TicTacToe.Game.new()
             },
-            current_board: :any
+            current_board: :any,
+            moves: [],
+            history: nil
 
   def new do
     %TicTacToe.MegaGame{}
@@ -49,7 +51,9 @@ defmodule TicTacToe.MegaGame do
           player: player,
           boards: Map.put(game.boards, grid, board),
           board: new_board,
-          winner: TicTacToe.Game.check_winner(new_board)
+          winner: TicTacToe.Game.check_winner(new_board),
+          moves: [{grid, {x, y}}, game.moves],
+          history: game
         }
 
         %{new_game | current_board: get_next_grid(new_game, {x, y})}
@@ -62,4 +66,7 @@ defmodule TicTacToe.MegaGame do
       _ -> :any
     end
   end
+
+  def undo(game = %TicTacToe.MegaGame{history: nil}), do: game
+  def undo(%TicTacToe.MegaGame{history: history}), do: history
 end

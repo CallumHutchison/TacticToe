@@ -91,6 +91,7 @@
 .center {
   margin: auto;
   width: 50%;
+  min-width: 500px;
   padding: 10px;
 }
 
@@ -101,63 +102,50 @@
 .mega_game_grid {
   width: 500px;
   height: 500px;
+  border-radius: 5px;
+  padding: 5px;
   margin: auto;
   display: grid;
   grid-gap: 10px 10px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  box-shadow: 2px 2px 5px 5px grey;
 }
 
-.game_grid_inactive {
+.game_grid {
   width: 100%;
   height: 100%;
+  border-radius: 5px;
   margin: auto;
   display: grid;
   grid-gap: 5px 5px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  padding: 5px;
+  padding: 1px;
+  border: 6px solid white;
 }
 
-.game_grid_active {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  display: grid;
-  grid-gap: 5px 5px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  background-color: green;
-  padding: 5px;
-}
-
-.game_grid_active div {
+.game_grid div {
   width: 100%;
   height: 100%;
   
   margin: auto;
 }
 
-.game_grid_active button {
+.game_grid button {
   width: 100%;
   height: 100%;
   margin: auto;
   padding: 0px;
   font-size: medium;
+  background-color: rgb(223, 223, 223);
+  border: 2px solid #aaa;
+  color: black;
 }
 
-.game_grid_inactive div {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-}
-
-.game_grid_inactive button {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  padding: 0px;
-  font-size: medium;
+.game_grid.game_grid_active button {
+  border: 2px solid rgb(56, 126, 56);
+  background-color: rgb(164, 221, 164);
 }
 
 .control_bar {
@@ -177,4 +165,15 @@
   text-align: center;
   flex-direction: row;
   justify-content: center;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.control_bar button {
+  background-color: rgb(223, 223, 223);
+  color: black;
+  border: 1px solid grey;
+  width:150px;
 }
