@@ -17,8 +17,7 @@ defmodule TacticToeWeb.Router do
   scope "/", TacticToeWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    live "/game", GameLive
+    live "/", GameLive
   end
 
   # Other scopes may use custom stacks.
